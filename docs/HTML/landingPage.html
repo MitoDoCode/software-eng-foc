@@ -13,16 +13,22 @@
 
   <!-- ========== HEADER ========== -->
   <header class="site-header">
+
     <div class="logo" id="logoBtn" role="button" tabindex="0" aria-label="Open menu">
-      <span class="logo-icon" id="logoIcon"></span>
-      <span class="logo-text">HeritageGo</span>
-    </div>
+  <span class="hamburger" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+  <span class="logo-text">HeritageGo</span>
+</div>
+
     <nav class="main-nav">
-      <a href="#">Landmarks</a>
-      <a href="#">Features</a>
-      <a href="#">Map</a>
-      <a href="login&signupPage.html" class="btn-login">Log in</a>
-    </nav>
+  <a href="#landmarks">Landmarks</a>
+  <a href="#features">Features</a>
+  <a href="#map">Map</a>
+  <a href="login&signupPage.html" class="btn-login">Log in</a>
+</nav>
   </header>
 
   <!-- ========== SIDEBAR ========== -->
@@ -46,7 +52,7 @@
     <img src="../Images/logos/wishlist.png" alt="" class="sidebar-icon-img">
     <span>My Trips</span>
   </a>
-  <a href="#account" class="sidebar-link" data-page="account">
+  <a href="accountPage.html" class="sidebar-link" data-page="account">
     <img src="../Images/logos/user.png" alt="" class="sidebar-icon-img">
     <span>Account</span>
   </a>
@@ -88,7 +94,7 @@
   </section>
 
   <!-- ========== FEATURED LANDMARKS ========== -->
-  <section class="featured">
+  <section class="featured" id="landmarks">
     <div class="section-header">
       <h2>Featured landmarks</h2>
       <div class="filter-tabs" id="filterTabs">
@@ -202,7 +208,7 @@
   </section>
 
   <!-- ========== FEATURES ========== -->
-  <section class="features">
+  <section class="features" id="features">
     <h2>Everything for a day of exploring</h2>
     <div class="feature-grid">
       <div class="feature-item">
@@ -225,7 +231,7 @@
   </section>
 
   <!-- ========== MAP SECTION ========== -->
-  <section class="map-section">
+  <section class="map-section" id="map">
     <h2>All on one map</h2>
 
     <div class="map-canvas">

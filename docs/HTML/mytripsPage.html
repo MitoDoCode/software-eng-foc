@@ -11,14 +11,13 @@
 </head>
 <body>
 
-  <!-- ========== SIDEBAR OVERLAY ========== -->
+   <!-- ========== SIDEBAR OVERLAY ========== -->
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <!-- ========== SIDEBAR ========== -->
   <aside class="sidebar" id="sidebar" aria-hidden="true">
     <div class="sidebar-header">
       <div class="logo">
-        <span class="logo-icon"></span>
         <span class="logo-text">HeritageGo</span>
       </div>
       <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
@@ -34,9 +33,8 @@
         <span>My Trips</span>
       </a>
       <a href="accountPage.html" class="sidebar-link" data-page="account">
-  <img src="../Images/logos/user.png" alt="" class="sidebar-icon-img">
-  <span>Account</span>
-</a>
+        <img src="../Images/logos/user.png" alt="" class="sidebar-icon-img">
+        <span>Account</span>
       </a>
     </nav>
   </aside>
@@ -45,7 +43,11 @@
   <header class="trips-header">
     <div class="trips-title-row">
       <div class="logo" id="logoBtn" role="button" tabindex="0" aria-label="Open menu">
-        <span class="logo-icon" id="logoIcon"></span>
+        <span class="hamburger" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
         <span class="logo-text">HeritageGo</span>
       </div>
     </div>
@@ -56,9 +58,15 @@
       Synced to your account
     </p>
   </header>
-
   <!-- ========== PROGRESS CARD ========== -->
   <section class="progress-card">
+  <div class="progress-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+    </svg>
+  </div>
+
+  <div class="progress-content">
     <p class="progress-label">Heritage progress</p>
     <p class="progress-count">
       <span class="progress-num" id="visitedCount">2</span>
@@ -67,7 +75,8 @@
     <div class="progress-bar">
       <div class="progress-fill" id="progressFill" style="width: 40%;"></div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ========== TOGGLE ========== -->
   <div class="trips-toggle">

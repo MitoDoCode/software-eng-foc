@@ -6,13 +6,13 @@
 }
 
 :root {
-  --bg-dark-green: #1C4B2A;
-  --bg-cream: #EBF1E3;
-  --text-dark: #1A2E1F;
-  --border-input: #C8D6C0;
-  --border-btn: #C8D6C0;
-  --error: #C0392B;
-  --success: #2E7D4A;
+  --bg-dark-green: #173B57;         
+  --bg-cream: #F7F5EF;             
+  --text-dark: #263238;             
+  --border-input: #E8E7E2;          
+  --border-btn: #E8E7E2;           
+  --error: #B83232;                
+  --success: #426B51;              
 }
 
 html, body {

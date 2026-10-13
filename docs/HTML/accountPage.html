@@ -18,7 +18,6 @@
   <aside class="sidebar" id="sidebar" aria-hidden="true">
     <div class="sidebar-header">
       <div class="logo">
-        <span class="logo-icon"></span>
         <span class="logo-text">HeritageGo</span>
       </div>
       <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
@@ -44,7 +43,11 @@
   <header class="account-header">
     <div class="account-title-row">
       <div class="logo" id="logoBtn" role="button" tabindex="0" aria-label="Open menu">
-        <span class="logo-icon" id="logoIcon"></span>
+        <span class="hamburger" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
         <span class="logo-text">HeritageGo</span>
       </div>
     </div>
@@ -54,7 +57,11 @@
 
   <!-- ========== PROFILE CARD ========== -->
   <section class="profile-card">
-    <div class="profile-avatar" id="profileAvatar">DJ</div>
+    <div class="profile-avatar" id="profileAvatar">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+  </svg>
+</div>
     <div class="profile-info">
       <p class="profile-name" id="profileName">Your name</p>
       <p class="profile-email" id="profileEmail">you@example.com</p>
@@ -63,45 +70,77 @@
 
   <!-- ========== STATS ROW ========== -->
   <section class="stats-row">
-    <a href="mytripsPage.html?view=visited" class="stat-card">
-      <span class="stat-num" id="statVisited">2</span>
-      <span class="stat-label">Visited</span>
-    </a>
-    <a href="mytripsPage.html?view=bucket" class="stat-card">
-      <span class="stat-num" id="statBucket">3</span>
-      <span class="stat-label">Bucket list</span>
-    </a>
-    <a href="#" class="stat-card">
-      <span class="stat-num" id="statReviews">2</span>
-      <span class="stat-label">Reviews</span>
-    </a>
-  </section>
-
+  <a href="mytripsPage.html?view=visited" class="stat-card">
+    <svg class="stat-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+    </svg>
+    <span class="stat-num" id="statVisited">2</span>
+    <span class="stat-label">Visited</span>
+  </a>
+  <a href="mytripsPage.html?view=bucket" class="stat-card">
+    <svg class="stat-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </svg>
+    <span class="stat-num" id="statBucket">3</span>
+    <span class="stat-label">Bucket list</span>
+  </a>
+  <a href="#" class="stat-card">
+    <svg class="stat-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+      <circle cx="12" cy="7" r="4"/>
+    </svg>
+    <span class="stat-num" id="statReviews">2</span>
+    <span class="stat-label">Reviews</span>
+  </a>
+</section>
   <!-- ========== MENU LIST ========== -->
   <nav class="menu-list">
     <button class="menu-item" data-action="edit-profile" type="button">
+      <svg class="menu-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
       <span>Edit profile</span>
       <span class="menu-arrow">›</span>
     </button>
 
     <button class="menu-item" data-action="my-reviews" type="button">
+      <svg class="menu-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      </svg>
       <span>My reviews</span>
       <span class="menu-arrow">›</span>
     </button>
 
     <button class="menu-item" data-action="change-password" type="button">
+      <svg class="menu-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
       <span>Change password</span>
       <span class="menu-arrow">›</span>
     </button>
 
     <button class="menu-item" data-action="about" type="button">
+      <svg class="menu-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
       <span>About HeritageGo</span>
       <span class="menu-arrow">›</span>
     </button>
   </nav>
 
   <!-- ========== SIGN OUT ========== -->
-  <button class="sign-out-btn" id="signOutBtn" type="button">Sign out</button>
+  <button class="sign-out-btn" id="signOutBtn" type="button">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+      <polyline points="16 17 21 12 16 7"/>
+      <line x1="21" y1="12" x2="9" y2="12"/>
+    </svg>
+    <span>Sign out</span>
+  </button>
 
   <script src="../JS/landingpageSidebar.js"></script>
   <script src="../JS/accountPage.js"></script>

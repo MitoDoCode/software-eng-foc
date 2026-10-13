@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   let currentView = 'bucket';
-
   function renderList() {
     if (!tripsList) return;
 
@@ -48,10 +47,16 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-  tripsList.innerHTML = items.map(place => `
+    tripsList.innerHTML = items.map(place => `
   <a href="placesPage.html?id=${encodeURIComponent(place.id)}&from=trips" class="trip-card">
     <div class="trip-thumb">
-      <img src="${place.image}" alt="" class="trip-thumb-img" onerror="this.style.display='none'">
+      <div class="mini-graphic"></div>
+      <img
+        src="${place.image}"
+        alt=""
+        class="trip-thumb-img"
+        onerror="this.style.display='none'; this.previousElementSibling.style.display='block';"
+      >
     </div>
     <div class="trip-info">
       <p class="trip-name">${place.name}</p>

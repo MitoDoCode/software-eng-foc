@@ -5,15 +5,18 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
-  --bg-cream: #f1f5e8;
-  --bg-dark-green: #1c4b2a;
-  --bg-card-cream: #f4f7ed;
-  --text-dark: #1a2e1f;
-  --text-light: #e9f0e3;
-  --accent-green: #2e7d4a;
-  --border-subtle: #cfdac3;
-  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --bg-cream: #F7F5EF;              
+  --bg-dark-green: #173B57;         
+  --bg-card-cream: #FFFFFF;        
+  --text-dark: #263238;             
+  --text-light: #F7F5EF;          
+  --accent-green: #D6AD55;          
+  --card-shadow: 0 4px 12px rgba(23, 59, 87, 0.06);
   --radius-md: 12px;
   --radius-lg: 24px;
   --font-serif: 'DM Serif Display', serif;
@@ -30,6 +33,46 @@ body {
 }
 
 /* ========== HEADER ========== */
+
+.hamburger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;   
+  align-items: flex-start;
+  width: 18px;
+  height: 12px;                     
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--bg-dark-green);
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;                   
+}
+
+
+.logo:hover .hamburger span {
+  background-color: #D6AD55;               
+}
+
+.logo:hover .logo-text {
+  color: #D6AD55;
+}
+
+.logo-text {
+  transition: color 0.2s ease;
+}
+
+
+/*
+.logo:hover .hamburger span:nth-child(1) { transform: translateX(2px); }
+.logo:hover .hamburger span:nth-child(3) { transform: translateX(-2px); }*/
+
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -148,7 +191,7 @@ body {
 
 /* Hero Graphic */
 .hero-image {
-  background-color: var(--bg-dark-green);
+  background-color: var(--bg-dark-green);   
   border-radius: var(--radius-lg);
   height: 400px;
   display: flex;
@@ -164,7 +207,7 @@ body {
   top: 1.2rem;
   left: 1.5rem;
   font-size: 0.7rem;
-  color: #b8d0b0;
+  color: #F1E5C8;                           
   letter-spacing: 0.03em;
   font-weight: 400;
 }
@@ -184,13 +227,14 @@ body {
   height: 180px;
 }
 
+/* --- LEFT TOWER --- */
 .tower.left {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 40px;
   height: 100px;
-  background-color: #2b6b3e;
+  background-color: #D6AD55;                 
   border-radius: 4px 4px 0 0;
 }
 .tower.left::after {
@@ -203,16 +247,17 @@ body {
   height: 0;
   border-left: 22px solid transparent;
   border-right: 22px solid transparent;
-  border-bottom: 28px solid #2b6b3e;
+  border-bottom: 28px solid #D6AD55;        
 }
 
+/* --- RIGHT TOWER --- */
 .tower.right {
   position: absolute;
   right: 0;
   bottom: 0;
   width: 40px;
   height: 100px;
-  background-color: #2b6b3e;
+  background-color: #D6AD55;                 
   border-radius: 4px 4px 0 0;
 }
 .tower.right::after {
@@ -225,19 +270,21 @@ body {
   height: 0;
   border-left: 22px solid transparent;
   border-right: 22px solid transparent;
-  border-bottom: 28px solid #2b6b3e;
+  border-bottom: 28px solid #D6AD55;         
 }
 
+/* --- MAIN BODY --- */
 .main-body {
   position: absolute;
   left: 40px;
   right: 40px;
   bottom: 0;
   height: 130px;
-  background-color: #2b6b3e;
+  background-color: #D6AD55;                 
   border-radius: 6px 6px 0 0;
 }
 
+/* ---  .arch--- */
 .arch {
   position: absolute;
   left: 50%;
@@ -245,7 +292,7 @@ body {
   bottom: 0;
   width: 36px;
   height: 50px;
-  background-color: #1c4b2a;
+  background-color: #173B57;                
   border-radius: 20px 20px 0 0;
   z-index: 2;
 }
@@ -357,9 +404,9 @@ a.card {
   background: #fff;
   box-shadow: var(--card-shadow);
 }
-
+/* Card */
 .card-image {
-  background-color: var(--bg-dark-green);
+  background-color: var(--bg-dark-green);  
   height: 140px;
   display: flex;
   align-items: center;
@@ -369,10 +416,11 @@ a.card {
 .mini-graphic {
   width: 80px;
   height: 50px;
-  background-color: #2b6b3e;
+  background-color: #D6AD55;                 
   clip-path: polygon(0% 100%, 0% 40%, 20% 40%, 20% 20%, 40% 20%, 40% 40%, 60% 40%, 60% 20%, 80% 20%, 80% 40%, 100% 40%, 100% 100%);
   position: relative;
 }
+
 .mini-graphic::after {
   content: "";
   position: absolute;
@@ -381,7 +429,7 @@ a.card {
   transform: translateX(-50%);
   width: 20px;
   height: 20px;
-  background-color: var(--bg-dark-green);
+  background-color: #173B57;                 
   border-radius: 10px 10px 0 0;
 }
 
@@ -492,14 +540,14 @@ a.card {
   min-height: 260px;
   max-height: 560px;
   margin-top: 2rem;
-  background-color: var(--bg-cream);
+  background-color: var(--bg-cream);         
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
 .road {
   position: absolute;
-  background-color: #2e7d4a;
+  background-color: #D6AD55;                
   opacity: 0.85;
 }
 
@@ -514,7 +562,7 @@ a.card {
 
 .map-block {
   position: absolute;
-  background-color: #2e7d4a;
+  background-color: #D6AD55;                
   border-radius: 8px;
   z-index: 2;
 }
@@ -537,7 +585,7 @@ a.card {
   left: 0;
   width: 100%;
   height: 22%;
-  background-color: #1c4b2a;
+  background-color: #173B57;                 
   border-radius: 40% 60% 0 0 / 100% 100% 0 0;
   z-index: 2;
 }
@@ -548,7 +596,7 @@ a.card {
   left: 3%;
   z-index: 4;
   background-color: rgba(255, 255, 255, 0.92);
-  color: #1a2e1f;
+  color: #263238;                           
   font-size: clamp(0.6rem, 0.9vw, 0.75rem);
   font-weight: 500;
   padding: 6px 14px;
@@ -683,7 +731,7 @@ a.card {
 }
 
 .hero-tagline-rotator .hero-sub { margin-bottom: 0; }
-/* ========== SIDEBAR ========== *//* ========== SIDEBAR ========== */
+/* ========== SIDEBAR ========== */
 .sidebar-overlay {
   position: fixed;
   inset: 0;
@@ -814,4 +862,18 @@ a.card {
 @media (max-width: 640px) {
   .hero-tagline-rotator { min-height: 110px; }
   .tagline-line--greeting { font-size: 1.3rem; }
+}
+
+/* ========== Sidebar ========== */
+.sidebar-link.is-active {
+  color: var(--accent-green);
+}
+
+.sidebar-link.is-active .sidebar-icon-img {
+  filter: brightness(0) saturate(100%) invert(75%) sepia(50%) saturate(600%) hue-rotate(5deg) brightness(95%) contrast(90%);
+}
+
+.sidebar-link.is-active:hover {
+  background-color: rgba(214, 173, 85, 0.15);
+  color: var(--accent-green);
 }
