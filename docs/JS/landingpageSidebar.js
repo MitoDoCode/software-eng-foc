@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // 3. MARK THE ACTIVE SIDEBAR LINK (gold text + gold icon)
+  // 3. MARK THE ACTIVE SIDEBAR LINK 
 
   const currentPage = window.location.pathname.split('/').pop() || 'landingPage.html';
   const pageMap = {
