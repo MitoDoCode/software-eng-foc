@@ -1,4 +1,3 @@
-
 //   HERITAGEGO  Sidebar 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,26 +58,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+
+  // 3. MARK THE ACTIVE SIDEBAR LINK (gold text + gold icon)
+
+  const currentPage = window.location.pathname.split('/').pop() || 'landingPage.html';
+  const pageMap = {
+    'landingPage.html': 'explore',
+    '':                 'explore',
+    'mytripsPage.html': 'trips',
+    'accountPage.html': 'account'
+  };
+  const activePage = pageMap[currentPage];
+
+  document.querySelectorAll('.sidebar-link').forEach(link => {
+    if (link.dataset.page === activePage) {
+      link.classList.add('is-active');
+    }
+  });
+
+
+  // 4. CLOSE SIDEBAR ON LINK CLICK
+
   document.querySelectorAll('.sidebar-link').forEach(link => {
     link.addEventListener('click', () => {
       console.log('Navigate to:', link.dataset.page);
       closeSidebar();
     });
   });
-
-  /* --------------------------------------------
-     3. FUTURE: swap pin logo for image
-     Uncomment when you have a logo.png in Images/
-  -------------------------------------------- */
-  //
-  // const logoIcon = document.getElementById('logoIcon');
-  // if (logoIcon) {
-  //   const img = document.createElement('img');
-  //   img.src = '../Images/logo.png';
-  //   img.alt = 'HeritageGo';
-  //   img.style.width = '24px';
-  //   img.style.height = '24px';
-  //   logoIcon.replaceWith(img);
-  // }
 
 });

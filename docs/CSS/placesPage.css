@@ -6,14 +6,13 @@
 }
 
 :root {
-  --bg-cream: #f1f5e8;
-  --bg-dark-green: #1c4b2a;
-  --bg-card-cream: #f4f7ed;
-  --text-dark: #1a2e1f;
-  --text-light: #e9f0e3;
-  --accent-green: #2e7d4a;
-  --border-subtle: #cfdac3;
-  --radius-md: 12px;
+  --bg-cream: #F7F5EF;              
+  --bg-dark-green: #173B57;       
+  --bg-card-cream: #FFFFFF;        
+  --text-dark: #263238;             
+  --text-light: #F7F5EF;            
+  --accent-green: #D6AD55;          
+  --border-subtle: #E8E7E2;        
   --radius-lg: 24px;
   --font-serif: 'DM Serif Display', serif;
   --font-sans: 'Inter', sans-serif;
