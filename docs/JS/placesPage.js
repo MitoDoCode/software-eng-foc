@@ -162,6 +162,15 @@ const data   = PLACES[id];
   $('detailDescription').textContent = data.description;
 
 
+    // Sidebar — "Good to know" card
+  const infoCat = document.getElementById('infoCategory');
+  const infoLoc = document.getElementById('infoLocation');
+  const infoDist = document.getElementById('infoDistance');
+  if (infoCat)  infoCat.textContent  = data.category;
+  if (infoLoc)  infoLoc.textContent  = data.location;
+  if (infoDist) infoDist.textContent = data.distance;
+  
+
   //   BUTTON INTERACTIONS
 
   const saveBtn    = $('saveBtn');

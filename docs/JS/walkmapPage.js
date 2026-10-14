@@ -1,4 +1,3 @@
-
 //   HERITAGEGO — Walk Map Page
 
 document.addEventListener('DOMContentLoaded', () => {

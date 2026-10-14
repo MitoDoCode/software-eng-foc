@@ -6,18 +6,19 @@
 }
 
 :root {
-  --bg-cream: #F7F5EF;              
-  --bg-dark-green: #173B57;        
-  --bg-card-cream: #FFFFFF;         
-  --text-dark: #263238;             
-  --text-light: #F7F5EF;           
-  --accent-green: #D6AD55;          
-  --border-subtle: #E8E7E2;        
+  --bg-cream: #F7F5EF;
+  --bg-dark-green: #173B57;
+  --bg-card-cream: #FFFFFF;
+  --text-dark: #263238;
+  --text-light: #F7F5EF;
+  --accent-green: #D6AD55;
+  --border-subtle: #E8E7E2;
   --radius-md: 12px;
   --radius-lg: 24px;
   --font-serif: 'DM Serif Display', serif;
   --font-sans: 'Inter', sans-serif;
 }
+
 html, body {
   height: 100%;
 }
@@ -28,7 +29,7 @@ body {
   color: var(--text-dark);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;           
+  overflow: hidden;
   position: relative;
 }
 
@@ -42,7 +43,7 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  pointer-events: none;        
+  pointer-events: none;
 }
 
 .walk-header .back-btn,
@@ -96,6 +97,7 @@ body {
   font-weight: 600;
   color: var(--bg-dark-green);
 }
+
 /* ========== MAP CANVAS ========== */
 .walk-map {
   position: fixed;
@@ -103,14 +105,14 @@ body {
   left: 0;
   right: 0;
   bottom: 320px;
-  background-color: var(--bg-cream);       
+  background-color: var(--bg-cream);
   overflow: hidden;
 }
 
 /* Roads */
 .road {
   position: absolute;
-  background-color: #D6AD55;                 
+  background-color: #D6AD55;
   opacity: 0.9;
 }
 
@@ -126,7 +128,7 @@ body {
 /* Blocks / buildings */
 .map-block {
   position: absolute;
-  background-color: #D6AD55;                 
+  background-color: #D6AD55;
   border-radius: 8px;
   z-index: 2;
 }
@@ -150,7 +152,7 @@ body {
   top: 38%;
   left: 46%;
   transform: translate(-50%, -120%);
-  background-color: var(--bg-dark-green);   
+  background-color: var(--bg-dark-green);
   color: #fff;
   font-size: 0.75rem;
   font-weight: 600;
@@ -168,7 +170,7 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #F7F5EF;              
+  background-color: #F7F5EF;
   display: inline-block;
 }
 
@@ -180,7 +182,7 @@ body {
   width: 28px;
   height: 28px;
   background-color: #fff;
-  border: 3px solid var(--bg-dark-green);   
+  border: 3px solid var(--bg-dark-green);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 6;
@@ -192,7 +194,7 @@ body {
 .you-inner {
   width: 10px;
   height: 10px;
-  background-color: var(--bg-dark-green);   
+  background-color: var(--bg-dark-green);
   border-radius: 50%;
 }
 
@@ -214,7 +216,7 @@ body {
   left: 0;
   width: 100%;
   height: 12%;
-  background-color: #173B57;                 
+  background-color: #173B57;
   border-radius: 60% 40% 0 0 / 100% 100% 0 0;
   z-index: 4;
 }
@@ -222,7 +224,7 @@ body {
 .zoom-controls {
   position: fixed;
   right: 20px;
-  bottom: 240px;      
+  bottom: 240px;
   z-index: 30;
   display: flex;
   flex-direction: column;
@@ -237,14 +239,14 @@ body {
   border: 1.5px solid var(--border-subtle);
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--bg-dark-green);              
+  color: var(--bg-dark-green);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(23, 59, 87, 0.08);
   transition: transform 0.15s, background 0.2s;
   line-height: 1;
 }
 
-.zoom-btn:hover  { background: #F1E5C8; }    
+.zoom-btn:hover  { background: #F1E5C8; }
 .zoom-btn:active { transform: scale(0.94); }
 
 /* ========== BOTTOM SHEET ========== */
@@ -256,7 +258,7 @@ body {
   width: 100%;
   background-color: var(--bg-cream);
   border-radius: 32px 32px 0 0;
-  padding: 28px 40px 32px;            
+  padding: 28px 40px 32px;
   box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08);
   z-index: 15;
 }
@@ -319,11 +321,11 @@ body {
   font-weight: 600;
 }
 
- /* check in button*/
+/* Check-in button */
 .checkin-btn {
   width: 100%;
   padding: 16px 20px;
-  background-color: var(--bg-dark-green);   
+  background-color: var(--bg-dark-green);
   color: #fff;
   border: none;
   border-radius: 50px;
@@ -334,11 +336,12 @@ body {
   transition: background 0.2s, transform 0.1s;
 }
 
-.checkin-btn:hover  { background-color: #0F2A3F; }  
+.checkin-btn:hover  { background-color: #0F2A3F; }
 .checkin-btn:active { transform: scale(0.98); }
 
 .checkin-btn.is-checked {
-  background-color: #D6AD55;                 }
+  background-color: #D6AD55;
+}
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 640px) {

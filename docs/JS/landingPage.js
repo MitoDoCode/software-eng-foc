@@ -1,131 +1,132 @@
-
 //   HERITAGEGO — Landing Page
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  
-   //  1. FEATURED LANDMARKS — Filtering
- 
-  const tabs  = document.querySelectorAll('.filter-tabs .tab');
-  const cards = document.querySelectorAll('#cardGrid .card');
-  const grid  = document.getElementById('cardGrid');
+  /* ========================================================
+     1. LANDMARK DATA (shared by Explore list)
+     ======================================================== */
+  const LANDMARKS = [
+    { id: 'barasoain',         name: 'Barasoain Church',                 category: 'historical', distance: '0.9 km', rating: 5, image: '../Images/velvetroom.jpg' },
+    { id: 'casa-real',         name: 'Casa Real Shrine',                 category: 'historical', distance: '1.1 km', rating: 5, image: '../Images/placeholders/casa-real.jpg' },
+    { id: 'malolos-cathedral', name: 'Malolos Cathedral',                category: 'cultural',   distance: '1.3 km', rating: 5, image: '../Images/placeholders/malolos-cathedral.jpg' },
+    { id: 'kamestizuhan',      name: 'Kamestizuhan District',            category: 'cultural',   distance: '1.6 km', rating: 5, image: '../Images/placeholders/kamestizuhan.jpg' },
+    { id: 'paseo',             name: 'Paseo del Congreso',               category: 'parks',      distance: '1.8 km', rating: 5, image: '../Images/placeholders/paseo.jpg' },
+    { id: 'republic-shrine',   name: 'Malolos Republic Shrine',          category: 'historical', distance: '1.3 km', rating: 4, image: '../Images/placeholders/republic-shrine.jpg' },
+    { id: 'barasoain-museum',  name: 'Barasoain Museum',                 category: 'historical', distance: '1.1 km', rating: 5, image: '../Images/placeholders/barasoain-museum.jpg' },
+    { id: 'heritage-house',    name: 'Malolos Heritage House',           category: 'cultural',   distance: '0.9 km', rating: 4, image: '../Images/placeholders/heritage-house.jpg' },
+    { id: 'arts-center',       name: 'Bulacan Arts Center',              category: 'cultural',   distance: '1.7 km', rating: 4, image: '../Images/placeholders/arts-center.jpg' },
+    { id: 'sports-complex',    name: 'Malolos Sports Complex',           category: 'parks',      distance: '2.0 km', rating: 4, image: '../Images/placeholders/sports-complex.jpg' },
+    { id: 'capitol-grounds',   name: 'Bulacan Provincial Capitol Grounds',category: 'parks',     distance: '1.6 km', rating: 4, image: '../Images/placeholders/capitol-grounds.jpg' }
+  ];
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const filter = tab.dataset.filter;
+  const CATEGORY_LABEL = {
+    historical: 'Historical',
+    cultural:   'Cultural',
+    parks:      'Parks'
+  };
 
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+  /* ========================================================
+     2. FEATURED LANDMARKS — horizontal slider (no tabs)
+     ======================================================== */
+  const grid = document.getElementById('cardGrid');
 
-      cards.forEach(card => {
-        const matches = filter === 'all' || card.dataset.category === filter;
-        if (matches) {
-          card.classList.remove('is-hidden');
-          card.classList.remove('fade-in');
-          void card.offsetWidth;      
-          card.classList.add('fade-in');
-        } else {
-          card.classList.add('is-hidden');
-          card.classList.remove('fade-in');
-        }
-      });
-
-      grid.scrollTo({ left: 0, behavior: 'smooth' });
-    });
-  });
-
-
-    // 2. HORIZONTAL SCROLL ON WHEEL
-
-    if (grid) {
+  if (grid) {
+    // wheel-to-horizontal-scroll
     grid.addEventListener('wheel', (e) => {
-      // If the grid can't scroll horizontally
       if (grid.scrollWidth <= grid.clientWidth) return;
-
-      // If user is holding shift, let the browser handle it
       if (e.shiftKey) return;
-
-      // Only intercept vertical wheel
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
         e.preventDefault();
-
-        // Multiply delta 
-
         grid.scrollLeft += e.deltaY * 1.2;
       }
     }, { passive: false });
-  }
 
-
-   //  3. DRAG-TO-SCROLL WITH MOUSE
-
-  if (grid) {
-    let isDown = false;
-    let startX = 0;
-    let startScroll = 0;
-
+    // drag-to-scroll
+    let isDown = false, startX = 0, startScroll = 0;
     grid.addEventListener('mousedown', (e) => {
       isDown = true;
       grid.classList.add('dragging');
       startX = e.pageX - grid.offsetLeft;
       startScroll = grid.scrollLeft;
     });
-
     grid.addEventListener('mouseleave', () => { isDown = false; });
     grid.addEventListener('mouseup',    () => { isDown = false; });
-
     grid.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - grid.offsetLeft;
       grid.scrollLeft = startScroll - (x - startX) * 1.5;
     });
-
-    // Prevent text/image selection while dragging
     grid.addEventListener('dragstart', (e) => e.preventDefault());
+
+    // initial fade-in
+    grid.querySelectorAll('.card').forEach(c => c.classList.add('fade-in'));
   }
 
+  /* ========================================================
+     3. EXPLORE MALOLOS — search + filter + list
+     ======================================================== */
+  const exploreList  = document.getElementById('exploreList');
+  const exploreTabs  = document.querySelectorAll('#exploreTabs .tab');
+  const exploreInput = document.getElementById('exploreSearch');
 
-    // 4. INITIAL FADE-IN
+  let activeFilter = 'all';
+  let activeQuery  = '';
 
-  cards.forEach(card => card.classList.add('fade-in'));
+  function renderExplore() {
+    if (!exploreList) return;
 
-});
+    const filtered = LANDMARKS.filter(place => {
+      const matchesFilter = activeFilter === 'all' || place.category === activeFilter;
+      const matchesQuery  = place.name.toLowerCase().includes(activeQuery);
+      return matchesFilter && matchesQuery;
+    });
 
-
-//   START EXPLORING — Normal button behavior
-
-document.addEventListener('DOMContentLoaded', () => {
-  const input = document.querySelector('.search-input');
-  const btn   = document.getElementById('startBtn');
-  if (!input || !btn) return;
-
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const query = input.value.trim();
-
-    if (!query) {
-
-      input.focus();
-      input.style.transition = 'transform 0.15s';
-      input.style.transform = 'translateX(-4px)';
-      setTimeout(() => input.style.transform = 'translateX(4px)', 80);
-      setTimeout(() => input.style.transform = 'translateX(0)', 160);
+    if (!filtered.length) {
+      exploreList.innerHTML = `<p class="explore-empty">No landmarks match your search.</p>`;
       return;
     }
 
+    exploreList.innerHTML = filtered.map(place => `
+      <a href="placesPage.html?id=${encodeURIComponent(place.id)}" class="explore-item">
+        <div class="explore-thumb">
+          <div class="mini-graphic"></div>
+          <img
+            src="${place.image}"
+            alt=""
+            class="explore-thumb-img"
+            onerror="this.style.display='none'; this.previousElementSibling.style.display='block';"
+          >
+        </div>
+        <div class="explore-info">
+          <p class="explore-name">${place.name}</p>
+          <p class="explore-meta">${CATEGORY_LABEL[place.category]} · ${place.distance}</p>
+          <p class="explore-stars">${'★'.repeat(place.rating)}${'☆'.repeat(5 - place.rating)}</p>
+        </div>
+        <button class="explore-bookmark" type="button" aria-label="Save">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+          </svg>
+        </button>
+      </a>
+    `).join('');
+  }
 
-    const target = document.querySelector('.featured');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  exploreTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      exploreTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      activeFilter = tab.dataset.filter;
+      renderExplore();
+    });
   });
 
+  if (exploreInput) {
+    exploreInput.addEventListener('input', () => {
+      activeQuery = exploreInput.value.trim().toLowerCase();
+      renderExplore();
+    });
+  }
 
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      btn.click();
-    }
-  });
+  renderExplore();
 });

@@ -24,99 +24,179 @@
     </button>
   </div>
 
-  <!-- ========== DETAIL CARD ========== -->
-  <main class="detail-card">
+  <!-- ========== PAGE BODY ========== -->
+  <div class="place-wrap">
 
-    <!-- Tag row -->
-    <div class="detail-tags">
-      <span class="detail-tag" id="detailCategory">Historical</span>
-      <span class="detail-location" id="detailLocation">Malolos City, Bulacan</span>
-    </div>
+    <!-- ========== LEFT COLUMN ========== -->
+    <main class="place-main">
 
-    <!-- Title -->
-    <h1 class="detail-title" id="detailName">Loading…</h1>
-
-    <!-- Rating + distance -->
-    <div class="detail-meta">
-      <span class="detail-rating">
-        <span class="star">★</span>
-        <span id="detailRating">4.8</span>
-      </span>
-      <span class="detail-dot">·</span>
-      <span id="detailReviews">126 reviews</span>
-      <span class="detail-dot">·</span>
-      <span id="detailDistance">1lkm away</span>
-    </div>
-
-    <!-- Description -->
-    <p class="detail-description" id="detailDescription">
-      Loading description…
-    </p>
-
-    <!-- Action buttons -->
-    <div class="detail-actions">
-      <button class="action-btn action-btn--primary" id="walkBtn">
-        <img src="../Images/logos/man-walking.png" alt="" class="action-icon">
-        <span>Walk</span>
-      </button>
-
-      <button class="action-btn action-btn--secondary" id="bucketBtn">
-        <img src="../Images/logos/checklist.png" alt="" class="action-icon">
-        <span>Add to bucket list</span>
-      </button>
-    </div>
-
-    <button class="action-btn action-btn--wide" id="visitedBtn">
-      <img src="../Images/logos/check-mark.png" alt="" class="action-icon">
-      <span>Mark as visited</span>
-    </button>
-
-        <!-- Reviews section -->
-    <section class="detail-reviews">
-      <div class="reviews-header">
-        <h2>Ratings &amp; reviews</h2>
-        <a href="#" class="see-all">See all</a>
+      <!-- Tag row -->
+      <div class="detail-tags">
+        <span class="detail-tag" id="detailCategory">Historical</span>
+        <span class="detail-location" id="detailLocation">Malolos City, Bulacan</span>
       </div>
 
-      <!-- ===== Review / comment input card ===== -->
-      <div class="review-form">
-        <h3 class="review-form-title">Rate your visit</h3>
+      <!-- Title -->
+      <h1 class="detail-title" id="detailName">Loading…</h1>
 
-        <!-- Star rating -->
-        <div class="star-picker" id="starPicker" aria-label="Rate this place">
-          <button type="button" class="star-btn" data-value="1" aria-label="1 star">★</button>
-          <button type="button" class="star-btn" data-value="2" aria-label="2 stars">★</button>
-          <button type="button" class="star-btn" data-value="3" aria-label="3 stars">★</button>
-          <button type="button" class="star-btn" data-value="4" aria-label="4 stars">★</button>
-          <button type="button" class="star-btn" data-value="5" aria-label="5 stars">★</button>
-        </div>
+      <!-- Rating + distance -->
+      <div class="detail-meta">
+        <span class="detail-rating">
+          <span class="star">★</span>
+          <span id="detailRating">4.8</span>
+        </span>
+        <span class="detail-dot">·</span>
+        <span id="detailReviews">126 reviews</span>
+        <span class="detail-dot">·</span>
+        <span id="detailDistance">0.9 km away</span>
+      </div>
 
-        <!-- Comment box -->
-        <textarea
-          id="reviewText"
-          class="review-textarea"
-          placeholder="Share what you loved about this place..."
-          rows="4"
-        ></textarea>
+      <!-- Description -->
+      <p class="detail-description" id="detailDescription">
+        Loading description…
+      </p>
 
-        <button type="button" class="review-submit" id="reviewSubmit">
-          Submit review
+      <!-- Action buttons -->
+      <div class="detail-actions">
+        <button class="action-btn action-btn--primary" id="walkBtn">
+          <img src="../Images/logos/man-walking.png" alt="" class="action-icon">
+          <span>Walk there</span>
+        </button>
+
+        <button class="action-btn action-btn--secondary" id="bucketBtn">
+          <img src="../Images/logos/checklist.png" alt="" class="action-icon">
+          <span>Add to bucket list</span>
+        </button>
+
+        <button class="action-btn action-btn--secondary" id="visitedBtn">
+          <img src="../Images/logos/check-mark.png" alt="" class="action-icon">
+          <span>Mark as visited</span>
         </button>
       </div>
 
-      <!-- ===== Existing reviews ===== -->
-      <div class="reviews-list" id="reviewsList">
-        <!--
-          FUTURE: reviews will be inserted here as
-          <div class="review-item"> ... </div> elements.
-        
-        -->
+      <!-- Reviews section -->
+      <section class="detail-reviews">
+        <div class="reviews-header">
+          <h2>Ratings &amp; reviews</h2>
+        </div>
+
+        <!-- Existing reviews -->
+        <div class="reviews-list" id="reviewsList">
+          <article class="review-item">
+            <div class="review-item-avatar">M</div>
+            <div class="review-item-body">
+              <div class="review-item-header">
+                <div>
+                  <p class="review-item-name">Maria S.</p>
+                  <p class="review-item-date">Oct 2, 2026</p>
+                </div>
+                <p class="review-item-stars">★★★★★</p>
+              </div>
+              <p class="review-item-text">Beautiful church with so much history. Go in the morning for the best light.</p>
+            </div>
+          </article>
+
+          <article class="review-item">
+            <div class="review-item-avatar">J</div>
+            <div class="review-item-body">
+              <div class="review-item-header">
+                <div>
+                  <p class="review-item-name">Juan D.</p>
+                  <p class="review-item-date">Sep 21, 2026</p>
+                </div>
+                <p class="review-item-stars">★★★★★</p>
+              </div>
+              <p class="review-item-text">A must-visit for anyone who loves Philippine history.</p>
+            </div>
+          </article>
+
+          <article class="review-item">
+            <div class="review-item-avatar">A</div>
+            <div class="review-item-body">
+              <div class="review-item-header">
+                <div>
+                  <p class="review-item-name">Ana R.</p>
+                  <p class="review-item-date">Sep 9, 2026</p>
+                </div>
+                <p class="review-item-stars">★★★★☆</p>
+              </div>
+              <p class="review-item-text">Lovely place, a bit crowded on weekends.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Review form -->
+        <div class="review-form">
+          <h3 class="review-form-title">Rate your visit</h3>
+
+          <div class="star-picker" id="starPicker" aria-label="Rate this place">
+            <button type="button" class="star-btn" data-value="1" aria-label="1 star">★</button>
+            <button type="button" class="star-btn" data-value="2" aria-label="2 stars">★</button>
+            <button type="button" class="star-btn" data-value="3" aria-label="3 stars">★</button>
+            <button type="button" class="star-btn" data-value="4" aria-label="4 stars">★</button>
+            <button type="button" class="star-btn" data-value="5" aria-label="5 stars">★</button>
+          </div>
+
+          <textarea
+            id="reviewText"
+            class="review-textarea"
+            placeholder="Share what you loved about this place..."
+            rows="4"
+          ></textarea>
+
+          <div class="review-footer">
+            <button type="button" class="review-submit" id="reviewSubmit">
+              Submit review
+            </button>
+            <span class="review-hint" id="reviewHint">Pick a star rating to submit</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ========== RIGHT COLUMN (SIDEBAR) ========== -->
+    <aside class="place-side">
+
+      <!-- Good to know card -->
+      <div class="info-card">
+        <h3 class="info-card-title">Good to know</h3>
+
+        <div class="info-row">
+          <span class="info-label">Category</span>
+          <span class="info-value" id="infoCategory">Historical</span>
+        </div>
+
+        <div class="info-row">
+          <span class="info-label">Location</span>
+          <span class="info-value" id="infoLocation">Malolos City, Bulacan</span>
+        </div>
+
+        <div class="info-row">
+          <span class="info-label">Distance</span>
+          <span class="info-value" id="infoDistance">0.9 km · about 11 min walk</span>
+        </div>
       </div>
-    </section>
 
-  </main>
+      <!-- Mini map -->
+      <div class="mini-map">
+        <div class="road road-h1"></div>
+        <div class="road road-h2"></div>
+        <div class="road road-v1"></div>
+        <div class="road road-v2"></div>
 
-  
+        <div class="map-block block-1"></div>
+        <div class="map-block block-2"></div>
+
+        <span class="map-pin pin-1">📍</span>
+
+        <div class="map-terrain"></div>
+        <div class="map-attribution">OpenStreetMap / Geoapify</div>
+      </div>
+
+    </aside>
+
+  </div>
 
   <script src="../JS/placesPage.js"></script>
 </body>

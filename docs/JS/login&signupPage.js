@@ -1,6 +1,4 @@
-
 //   HeritageGO Login / Signup Logic
-
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -14,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn     = document.getElementById('submitBtn');
   const formMessage   = document.getElementById('formMessage');
   const forgotLink    = document.getElementById('forgotLink');
+  const nameWrap      = document.getElementById('nameWrap');
+  const confirmWrap   = document.getElementById('confirmWrap');
 
   // Track current mode: 'login' or 'signup'
   let mode = 'login';
@@ -41,14 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (newMode === 'signup') {
 
-      nameField.style.display = 'block';
-      confirmField.style.display = 'block';
+      if (nameWrap)    nameWrap.style.display    = 'flex';
+      if (confirmWrap) confirmWrap.style.display = 'flex';
       submitBtn.textContent = 'Sign up';
       forgotLink.classList.add('hidden');
+
     } else {
 
-      nameField.style.display = 'none';
-      confirmField.style.display = 'none';
+      if (nameWrap)    nameWrap.style.display    = 'none';
+      if (confirmWrap) confirmWrap.style.display = 'none';
       nameField.value = '';
       confirmField.value = '';
       submitBtn.textContent = 'Log in';
@@ -58,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   //   FORM SUBMISSION
-
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -106,17 +106,24 @@ document.addEventListener('DOMContentLoaded', () => {
   //   FAKE AUTH (replace with real fetch later)
 
   function fakeAuthCall(email, password) {
-  submitBtn.disabled = true;
-  submitBtn.textContent = mode === 'login' ? 'Logging in…' : 'Creating account…';
+    submitBtn.disabled = true;
+    submitBtn.textContent = mode === 'login' ? 'Logging in…' : 'Creating account…';
 
-  setTimeout(() => {
-    submitBtn.disabled = false;
-    submitBtn.textContent = mode === 'login' ? 'Log in' : 'Sign up';
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = mode === 'login' ? 'Log in' : 'Sign up';
 
-    //redirect to landingPage.html
-    window.location.href = 'landingPage.html';
-  }, 800);
-}
+      // TODO: replace with real authentication endpoint
+      // Example:
+      // fetch('/api/auth', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ mode, email, password })
+      // }).then(...)
+
+      window.location.href = 'landingPage.html';
+    }, 800);
+  }
 
 
   //   HELPERS
@@ -126,8 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showError(inputEl, message) {
-    inputEl.classList.add('error', 'shake');
-    setTimeout(() => inputEl.classList.remove('shake'), 350);
+    const wrap = inputEl.closest('.input-wrap');
+    if (wrap) {
+      wrap.classList.add('error', 'shake');
+      setTimeout(() => wrap.classList.remove('shake'), 350);
+    }
     showMessage(message, 'error');
     inputEl.focus();
   }
@@ -143,20 +153,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function clearErrors() {
-    [nameField, emailField, passwordField, confirmField].forEach(f => {
-      f.classList.remove('error', 'shake');
+    document.querySelectorAll('.input-wrap').forEach(w => {
+      w.classList.remove('error', 'shake');
     });
   }
 
-  // --- Forgot password ---
+
+  //   FORGOT PASSWORD
+
   forgotLink.addEventListener('click', (e) => {
     e.preventDefault();
     const email = emailField.value.trim();
+
     if (!email || !isValidEmail(email)) {
       showMessage('Enter your email above, then click "Forgot password?".', 'error');
       emailField.focus();
       return;
     }
+
+    // TODO: replace with backend call:
+    // fetch('/api/auth/forgot', { method: 'POST', body: JSON.stringify({ email }) });
+
     showMessage(`Reset link sent to ${email}`, 'success');
   });
 

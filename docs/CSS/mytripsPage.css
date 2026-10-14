@@ -236,6 +236,7 @@ body {
   text-decoration: none;
   color: inherit;
   transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+  flex-wrap: wrap;                  
 }
 
 .trip-card:hover {
@@ -512,4 +513,56 @@ body {
 .sidebar-link.is-active:hover {
   background-color: rgba(214, 173, 85, 0.15);
   color: var(--accent-green);
+}
+
+/* ========== Trip card actions ========== */
+.trip-actions {
+  flex: 1 0 100%;                     
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.trip-btn {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 40px;
+  border: 1.5px solid var(--border-subtle);
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--bg-dark-green);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.trip-btn:active { transform: scale(0.97); }
+
+/* Walk there — filled navy */
+.trip-btn--walk {
+  background-color: var(--bg-dark-green);
+  border-color: var(--bg-dark-green);
+  color: #fff;
+}
+.trip-btn--walk:hover {
+  background-color: #0F2A3F;
+  border-color: #0F2A3F;
+}
+
+/* Details — outline navy */
+.trip-btn--details:hover {
+  background-color: rgba(23, 59, 87, 0.06);
+  border-color: var(--bg-dark-green);
+}
+
+/* Remove — outline red */
+.trip-btn--remove {
+  color: #B83232;
+  border-color: #B83232;
+}
+.trip-btn--remove:hover {
+  background-color: #F6E4E1;
+  border-color: #B83232;
 }

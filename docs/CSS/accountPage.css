@@ -389,3 +389,408 @@ body {
     padding: 32px 40px 60px;
   }
 }
+
+/* ==================================================
+   TWO-COLUMN LAYOUT
+   ================================================== */
+.account-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.account-side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ==================================================
+   MENU ACTIVE STATE
+   ================================================== */
+.menu-item.is-active {
+  background-color: var(--bg-dark-green);
+  color: #fff;
+}
+
+.menu-item.is-active .menu-icon,
+.menu-item.is-active .menu-arrow {
+  color: #fff;
+}
+
+.menu-item:hover:not(.is-active) {
+  background-color: #f7faf3;
+}
+
+/* ==================================================
+   RIGHT PANELS
+   ================================================== */
+.account-panels {
+  position: relative;
+}
+
+.panel {
+  display: none;
+  position: relative;
+  background-color: #fff;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border-subtle);
+  padding: 32px 30px 32px;
+}
+
+.panel.is-open {
+  display: block;
+  animation: panelFadeIn 0.25s ease both;
+}
+
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.panel-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--bg-dark-green);
+  letter-spacing: -0.01em;
+  margin-bottom: 22px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.panel-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 3px;
+  background-color: var(--accent-green);
+  border-radius: 2px;
+}
+
+/* Back button in panels 
+.panel-back {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1.5px solid var(--bg-dark-green);
+  color: var(--bg-dark-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.panel-back:hover {
+  background-color: rgba(23, 59, 87, 0.06);
+  transform: scale(1.05);
+}*/
+
+/* ==================================================
+   FORM FIELDS (edit profile + password)
+   ================================================== */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 620px;
+}
+
+.edit-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1.5px solid var(--bg-dark-green);
+  border-radius: 50px;
+  padding: 0 22px;
+  transition: box-shadow 0.2s;
+}
+
+.edit-field:focus-within {
+  box-shadow: 0 0 0 3px rgba(23, 59, 87, 0.1);
+}
+
+.edit-field-icon {
+  color: var(--bg-dark-green);
+  flex-shrink: 0;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.edit-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 16px 0;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  outline: none;
+  min-width: 0;
+}
+
+.edit-input::placeholder {
+  color: #64727B;
+}
+
+/* Helper + feedback messages */
+.form-hint {
+  font-size: 0.8rem;
+  color: #64727B;
+  margin-top: -4px;
+}
+
+.form-message {
+  min-height: 18px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.form-message.error   { color: #B83232; }
+.form-message.success { color: #426B51; }
+
+/* Generic pill button used in panels */
+.panel-btn {
+  align-self: flex-start;
+  padding: 14px 32px;
+  background-color: var(--bg-dark-green);
+  color: #fff;
+  border: 1.5px solid var(--bg-dark-green);
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+  margin-top: 4px;
+}
+
+.panel-btn:hover  { background-color: #0F2A3F; }
+.panel-btn:active { transform: scale(0.98); }
+.panel-btn:disabled {
+  background-color: #64727B;
+  border-color: #64727B;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.panel-btn--ghost {
+  background-color: transparent;
+  color: var(--bg-dark-green);
+}
+
+.panel-btn--ghost:hover {
+  background-color: rgba(23, 59, 87, 0.06);
+}
+
+/* ==================================================
+   MY REVIEWS LIST
+   ================================================== */
+.reviews-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.review-card {
+  background-color: #fff;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px 20px 16px;
+}
+
+.review-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.review-card-name {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--bg-dark-green);
+}
+
+.review-card-date {
+  font-size: 0.78rem;
+  color: #64727B;
+  white-space: nowrap;
+}
+
+.review-card-stars {
+  color: var(--accent-green);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.review-card-text {
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.review-card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.review-action {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  background-color: #fff;
+}
+
+.review-action--edit {
+  border: 1.5px solid var(--bg-dark-green);
+  color: var(--bg-dark-green);
+}
+.review-action--edit:hover {
+  background-color: rgba(23, 59, 87, 0.06);
+}
+
+.review-action--delete {
+  border: 1.5px solid #B83232;
+  color: #B83232;
+}
+.review-action--delete:hover {
+  background-color: #F6E4E1;
+}
+
+.reviews-empty {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64727B;
+  font-style: italic;
+  padding: 40px 20px;
+}
+
+/* ==================================================
+   ABOUT PANEL
+   ================================================== */
+.about-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.about-logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: #F7F5EF;
+  border: 3px solid var(--accent-green);
+  color: var(--accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.about-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--bg-dark-green);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.about-version {
+  font-size: 0.85rem;
+  color: #64727B;
+  margin-bottom: 20px;
+}
+
+.about-desc {
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 24px;
+}
+
+.about-info {
+  width: 100%;
+  max-width: 480px;
+  background-color: #fff;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.about-info-row {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.about-info-row:last-child { border-bottom: none; }
+
+.about-info-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #64727B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.about-info-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.about-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.about-actions .panel-btn {
+  flex: 1;
+  margin-top: 0;
+  padding: 14px 20px;
+  text-align: center;
+}
+
+/* ==================================================
+   RESPONSIVE
+   ================================================== */
+@media (max-width: 900px) {
+  .account-wrap {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .account-side { order: 1; }
+  .account-panels { order: 2; }
+}

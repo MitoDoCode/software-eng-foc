@@ -46,9 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
       tripsList.innerHTML = `<p class="trips-empty">No places here yet.</p>`;
       return;
     }
-
     tripsList.innerHTML = items.map(place => `
-  <a href="placesPage.html?id=${encodeURIComponent(place.id)}&from=trips" class="trip-card">
+  <div class="trip-card" data-id="${place.id}">
     <div class="trip-thumb">
       <div class="mini-graphic"></div>
       <img
@@ -62,19 +61,35 @@ document.addEventListener('DOMContentLoaded', () => {
       <p class="trip-name">${place.name}</p>
       <p class="trip-meta">${place.category} · ${place.walkTime}</p>
     </div>
-    <button class="trip-walk-btn" data-walk-id="${place.id}" type="button">
-      <img src="../Images/logos/man-walking.png" alt="" class="trip-walk-icon">
-    </button>
-  </a>
+    <div class="trip-actions">
+      <button class="trip-btn trip-btn--walk"   data-action="walk"   data-id="${place.id}" type="button">Walk there</button>
+      <button class="trip-btn trip-btn--details" data-action="details" data-id="${place.id}" type="button">Details</button>
+      <button class="trip-btn trip-btn--remove"  data-action="remove"  data-id="${place.id}" type="button">Remove</button>
+    </div>
+  </div>
 `).join('');
 
 
-    tripsList.querySelectorAll('.trip-walk-btn').forEach(btn => {
+        tripsList.querySelectorAll('.trip-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const placeId = btn.getAttribute('data-walk-id');
-        window.location.href = `walkmapPage.html?id=${placeId}&from=trips`;
+
+        const action = btn.dataset.action;
+        const placeId = btn.dataset.id;
+
+        if (action === 'walk') {
+          window.location.href = `walkmapPage.html?id=${encodeURIComponent(placeId)}&from=trips`;
+        }
+        else if (action === 'details') {
+          window.location.href = `placesPage.html?id=${encodeURIComponent(placeId)}&from=trips`;
+        }
+        else if (action === 'remove') {
+          if (confirm('Remove this place from your trips?')) {
+            // TODO: actually remove from storage — for now just hide it
+            btn.closest('.trip-card').style.display = 'none';
+          }
+        }
       });
     });
   }
