@@ -6,23 +6,29 @@
   <title>HeritageGo — Malolos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="CSS/landingPage.css">
+  <link rel="stylesheet" href="../CSS/landingPage.css">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- ========== HEADER ========== -->
   <header class="site-header">
+
     <div class="logo" id="logoBtn" role="button" tabindex="0" aria-label="Open menu">
-      <span class="logo-icon" id="logoIcon"></span>
-      <span class="logo-text">HeritageGo</span>
-    </div>
+  <span class="hamburger" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+  <span class="logo-text">HeritageGo</span>
+</div>
+
     <nav class="main-nav">
-      <a href="#">Landmarks</a>
-      <a href="#">Features</a>
-      <a href="#">Map</a>
-      <a href="HTML/login&signupPage.html" class="btn-login">Log in</a>
-    </nav>
+  <a href="#explore">Landmarks</a>
+  <a href="#features">Features</a>
+  <a href="#map">Map</a>
+  <a href="login&signupPage.html" class="btn-login">Log in</a>
+</nav>
   </header>
 
   <!-- ========== SIDEBAR ========== -->
@@ -38,16 +44,16 @@
     </div>
 
     <nav class="sidebar-nav">
-  <a href="index.html" class="sidebar-link" data-page="explore">
-    <img src="Images/logos/compass.png" alt="" class="sidebar-icon-img">
+  <a href="landingPage.html" class="sidebar-link" data-page="explore">
+    <img src="../Images/logos/compass.png" alt="" class="sidebar-icon-img">
     <span>Explore</span>
   </a>
-  <a href="HTML/mytripsPage.html" class="sidebar-link" data-page="trips">
-    <img src="Images/logos/wishlist.png" alt="" class="sidebar-icon-img">
+  <a href="mytripsPage.html" class="sidebar-link" data-page="trips">
+    <img src="../Images/logos/wishlist.png" alt="" class="sidebar-icon-img">
     <span>My Trips</span>
   </a>
-  <a href="#account" class="sidebar-link" data-page="account">
-    <img src="Images/logos/user.png" alt="" class="sidebar-icon-img">
+  <a href="accountPage.html" class="sidebar-link" data-page="account">
+    <img src="../Images/logos/user.png" alt="" class="sidebar-icon-img">
     <span>Account</span>
   </a>
 </nav>
@@ -68,11 +74,13 @@
           Discover historical landmarks, parks and cultural sites. Save your bucket list, check in where you've been, and follow a walking path to your next stop.
         </p>
       </div>
-
+ <!-- 
       <div class="search-row">
         <input type="text" placeholder="Search landmarks, parks, churches" class="search-input">
         <button class="btn-primary" id="startBtn" type="button">Start exploring</button>
       </div>
+-->
+
     </div>
 
     <div class="hero-image">
@@ -86,23 +94,16 @@
       </div>
     </div>
   </section>
-
   <!-- ========== FEATURED LANDMARKS ========== -->
-  <section class="featured">
+  <section class="featured" id="landmarks">
     <div class="section-header">
       <h2>Featured landmarks</h2>
-      <div class="filter-tabs" id="filterTabs">
-        <button class="tab active" data-filter="all">All</button>
-        <button class="tab" data-filter="historical">Historical</button>
-        <button class="tab" data-filter="cultural">Cultural</button>
-        <button class="tab" data-filter="parks">Parks</button>
-      </div>
     </div>
 
     <div class="card-grid" id="cardGrid">
 
       <!-- Card 1 -->
-      <a href="HTML/placesPage.html?id=barasoain" class="card" data-category="historical">
+      <a href="placesPage.html?id=barasoain" class="card" data-category="historical">
         <div class="card-image"><div class="mini-graphic"></div></div>
         <div class="card-body">
           <span class="card-tag">Historical</span>
@@ -111,28 +112,28 @@
         </div>
       </a>
 
-      <!-- Card 2 -->
-      <a href="HTML/placesPage.html?id=casa-real" class="card" data-category="historical">
+      <!-- Card 2 
+      <a href="placesPage.html?id=casa-real" class="card" data-category="historical">
         <div class="card-image"><div class="mini-graphic"></div></div>
         <div class="card-body">
           <span class="card-tag">Historical</span>
           <h3>Casa Real Shrine</h3>
           <p>Former seat of government of the First Philippine Republic.</p>
         </div>
-      </a>
+      </a>-->
 
-      <!-- Card 3 -->
-      <a href="HTML/placesPage.html?id=malolos-cathedral" class="card" data-category="cultural">
+      <!-- Card 3 
+      <a href="placesPage.html?id=malolos-cathedral" class="card" data-category="cultural">
         <div class="card-image"><div class="mini-graphic"></div></div>
         <div class="card-body">
           <span class="card-tag">Cultural</span>
           <h3>Malolos Cathedral</h3>
           <p>The Immaculate Conception parish church at the heart of the town center.</p>
         </div>
-      </a>
+      </a>-->
 
-      <!-- Card 4 -->
-      <a href="HTML/placesPage.html?id=paseo" class="card" data-category="parks">
+      <!-- Card 4 
+      <a href="placesPage.html?id=paseo" class="card" data-category="parks">
         <div class="card-image"><div class="mini-graphic"></div></div>
         <div class="card-body">
           <span class="card-tag">Parks</span>
@@ -141,17 +142,17 @@
         </div>
       </a>
 
-      <!-- Extra Historical -->
-      <a href="HTML/placesPage.html?id=republic-shrine" class="card" data-category="historical">
+       Extra Historical 
+      <a href="placesPage.html?id=republic-shrine" class="card" data-category="historical">
         <div class="card-image"><div class="mini-graphic"></div></div>
         <div class="card-body">
           <span class="card-tag">Historical</span>
           <h3>Malolos Republic Shrine</h3>
           <p>Marker honoring the birthplace of Asia's first republic.</p>
         </div>
-      </a>
+      </a> -->
 
-      <a href="HTML/placesPage.html?id=barasoain-museum" class="card" data-category="historical">
+      <a href="placesPage.html?id=barasoain-museum" class="card" data-category="historical">
         <div class="card-image"><div class="mini-graphic"></div></div>
         <div class="card-body">
           <span class="card-tag">Historical</span>
@@ -161,7 +162,7 @@
       </a>
 
       <!-- Extra Cultural -->
-      <a href="HTML/placesPage.html?id=heritage-house" class="card" data-category="cultural">
+      <a href="placesPage.html?id=heritage-house" class="card" data-category="cultural">
         <div class="card-image"><div class="mini-graphic"></div></div>
         <div class="card-body">
           <span class="card-tag">Cultural</span>
@@ -170,7 +171,7 @@
         </div>
       </a>
 
-      <a href="HTML/placesPage.html?id=arts-center" class="card" data-category="cultural">
+      <a href="placesPage.html?id=arts-center" class="card" data-category="cultural">
         <div class="card-image"><div class="mini-graphic"></div></div>
         <div class="card-body">
           <span class="card-tag">Cultural</span>
@@ -179,30 +180,30 @@
         </div>
       </a>
 
-      <!-- Extra Parks -->
-      <a href="HTML/placesPage.html?id=sports-complex" class="card" data-category="parks">
+      <!-- Extra Parks 
+      <a href="placesPage.html?id=sports-complex" class="card" data-category="parks">
         <div class="card-image"><div class="mini-graphic"></div></div>
         <div class="card-body">
           <span class="card-tag">Parks</span>
           <h3>Malolos Sports Complex</h3>
           <p>Green open space for jogging, picnics, and community events.</p>
         </div>
-      </a>
+      </a>-->
 
-      <a href="HTML/placesPage.html?id=capitol-grounds" class="card" data-category="parks">
+      <a href="placesPage.html?id=capitol-grounds" class="card" data-category="parks">
         <div class="card-image"><div class="mini-graphic"></div></div>
         <div class="card-body">
           <span class="card-tag">Parks</span>
           <h3>Bulacan Provincial Capitol Grounds</h3>
           <p>Landscaped grounds and open plazas in the city center.</p>
         </div>
-      </a>
+      </a> 
 
     </div>
   </section>
 
   <!-- ========== FEATURES ========== -->
-  <section class="features">
+  <section class="features" id="features">
     <h2>Everything for a day of exploring</h2>
     <div class="feature-grid">
       <div class="feature-item">
@@ -224,8 +225,71 @@
     </div>
   </section>
 
+
+
+    <!-- ========== EXPLORE MALOLOS ========== -->
+  <section class="explore" id="explore">
+    <h2 class="explore-title">Explore Malolos</h2>
+    <p class="explore-sub">Search landmarks, filter by category and see them on the map.</p>
+
+    <div class="explore-toolbar">
+      <div class="explore-search">
+        <svg class="explore-search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input
+          type="text"
+          id="exploreSearch"
+          class="explore-search-input"
+          placeholder="Search landmarks, parks, churches"
+        >
+      </div>
+
+      <div class="filter-tabs" id="exploreTabs">
+        <button class="tab active" data-filter="all">All</button>
+        <button class="tab" data-filter="historical">Historical</button>
+        <button class="tab" data-filter="cultural">Cultural</button>
+        <button class="tab" data-filter="parks">Parks</button>
+      </div>
+    </div>
+
+    <div class="explore-layout">
+
+      <!-- LEFT: landmark list -->
+      <div class="explore-list" id="exploreList">
+        <!-- rendered by JS -->
+      </div>
+
+      <!-- RIGHT: map -->
+      <div class="explore-map">
+        <div class="map-canvas">
+          <div class="road road-h1"></div>
+          <div class="road road-h2"></div>
+          <div class="road road-h3"></div>
+          <div class="road road-v1"></div>
+          <div class="road road-v2"></div>
+          <div class="road road-v3"></div>
+          <div class="road road-v4"></div>
+
+          <div class="map-block block-1"></div>
+          <div class="map-block block-2"></div>
+
+          <span class="map-pin pin-1">📍</span>
+          <span class="map-pin pin-2">📍</span>
+          <span class="map-pin pin-3">📍</span>
+
+          <div class="map-terrain"></div>
+          <div class="map-attribution">Map data · OpenStreetMap / Geoapify</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
   <!-- ========== MAP SECTION ========== -->
-  <section class="map-section">
+  <section class="map-section" id="map">
     <h2>All on one map</h2>
 
     <div class="map-canvas">
@@ -261,8 +325,8 @@
     </div>
   </footer>
 
-  <script src="JS/landingPage.js"></script>
-  <script src="JS/easteregg.js"></script>
-  <script src="JS/landingpageSidebar.js"></script>
+  <script src="../JS/landingPage.js"></script>
+  <script src="../JS/easteregg.js"></script>
+  <script src="../JS/landingpageSidebar.js"></script>
 </body>
 </html>
